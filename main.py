@@ -38,10 +38,7 @@ def is_short_link(parsed_url, apikey):
     if parsed_url.netloc == 'vk.cc':
         response = requests.get(url, params)
         response.raise_for_status()
-        if 'error' not in response.json():
-            return True
-        else:
-            return False
+        return 'error' not in response.json()
 
 
 def main():
